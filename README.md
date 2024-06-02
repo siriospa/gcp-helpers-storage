@@ -1,9 +1,9 @@
 # Google Cloud Platform Helpers for Cloud Storage
 
-![GitHub License](https://img.shields.io/github/license/siriospa/gcp-helpers-storage)
+[![GitHub License](https://img.shields.io/github/license/siriospa/gcp-helpers-storage)](https://github.com/siriospa/gcp-helpers-storage?tab=Apache-2.0-1-ov-file)
 ![GitHub package.json](https://img.shields.io/github/package-json/version/siriospa/gcp-helpers-storage)
 ![GitHub top language](https://img.shields.io/github/languages/top/siriospa/gcp-helpers-storage)
-![NPM Version](https://img.shields.io/npm/v/%40siriospa%2Fgcp-helpers-storage)
+[![NPM Version](https://img.shields.io/npm/v/%40siriospa%2Fgcp-helpers-storage)](https://www.npmjs.com/package/@siriospa/gcp-helpers-storage)
 
 Helpers for Google Cloud Storage.
 
