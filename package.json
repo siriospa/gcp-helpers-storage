@@ -26,7 +26,7 @@
   "homepage": "https://github.com/siriospa/gcp-helpers-storage#README.md",
   "dependencies": {
     "@google-cloud/storage": "^7.11.1",
-    "@siriospa/gcp-functions-logger": "^1.0.3"
+    "@siriospa/gcp-functions-logger": "^1.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.6",
