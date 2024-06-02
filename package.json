@@ -1,0 +1,37 @@
+{
+  "name": "@siriospa/gcp-helpers-storage",
+  "private": false,
+  "version": "1.0.0",
+  "description": "Helpers for Google Cloud Storage.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf ./dist && mkdirp ./dist && babel src --out-dir dist --copy-files",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siriospa/gcp-helpers-storage.git"
+  },
+  "keywords": [
+    "sirio",
+    "storage",
+    "google-cloud-platform",
+    "gcp"
+  ],
+  "author": "Lucio Benini <lucio.benini@pittica.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/siriospa/gcp-helpers-storage/issues"
+  },
+  "homepage": "https://github.com/siriospa/gcp-helpers-storage#README.md",
+  "dependencies": {
+    "@google-cloud/storage": "^7.11.1",
+    "@siriospa/gcp-functions-logger": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.6",
+    "mkdirp": "^3.0.1",
+    "prettier": "^3.3.0",
+    "rimraf": "^5.0.7"
+  }
+}
