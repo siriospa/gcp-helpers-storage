@@ -57,5 +57,9 @@ exports.moveFiles = async (source, destination) => {
 exports.deleteFile = (file) =>
   file
     .delete()
-    .then((response) => response.statusCode >= 200 && response.statusCode < 300)
+    .then((response) => {
+      const [res] = response
+
+      return res.statusCode >= 200 && res.statusCode < 300
+    })
     .catch(() => false)
