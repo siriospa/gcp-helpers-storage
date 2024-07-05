@@ -22,7 +22,9 @@ const log = require("@siriospa/gcp-functions-logger")
  * @param {string} destination Destination bucket.
  */
 exports.moveFiles = async (source, destination) => {
-  const storage = new Storage()
+  const storage = new Storage({
+    retryOptions: { autoRetry: true, retryDelayMultiplier: 4 },
+  })
   const bucket = storage.bucket(destination)
   const [files] = await storage.bucket(source).getFiles()
 
@@ -47,6 +49,16 @@ exports.moveFiles = async (source, destination) => {
     })
   )
 }
+
+/**
+ * Copies the given file from a bucket to another.
+ *
+ * @param {File} source Source file.
+ * @param {string} destination Destination bucket.
+ * @returns {Promise}
+ */
+exports.copyFile = (source, destination) =>
+  source.copy(source.storage.bucket(destination).file(source.id))
 
 /**
  * Deletes a file in Google Cloud Storage.

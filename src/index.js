@@ -12,9 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const { deleteFile, moveFiles } = require("./file")
+const { copyFile, deleteFile, moveFiles } = require("./file")
 const { file, bucket } = require("./download")
 
+exports.copyFile = copyFile
 exports.deleteFile = deleteFile
 exports.moveFiles = moveFiles
 exports.downloadFile = file
