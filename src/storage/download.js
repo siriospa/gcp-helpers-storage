@@ -15,6 +15,7 @@
 const path = require("path")
 const { Storage } = require("@google-cloud/storage")
 const log = require("@siriospa/gcp-functions-logger")
+const fs = require("fs")
 
 /**
  * Downloads all files from given bucket.
@@ -35,13 +36,21 @@ exports.bucket = async (bucket, destination = __dirname) => {
  *
  * @param {string} file File name.
  * @param {Bucket} bucket Google Cloud Storage bucket object.
- * @param {string} destination Destination path.
+ * @param {string} directory Destination directory.
  */
-exports.file = async (file, bucket, destination = __dirname) =>
-  bucket
+exports.file = async (file, bucket, directory = __dirname) => {
+  const destination = path.join(directory, file)
+  const folder = path.dirname(destination)
+
+  if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder, 0o744)
+  }
+
+  return bucket
     .file(file)
     .download({
-      destination: path.join(destination, file),
+      destination,
     })
     .then(() => log.info(`Downloading "${file}".`))
     .catch(() => log.error(`Failed downloading "${file}".`))
+}
