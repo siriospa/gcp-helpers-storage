@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const { copyFile, deleteFile, moveFiles } = require("./storage/file")
-const { file, bucket } = require("./storage/download")
-const { write } = require("./storage/json")
+const { bucket } = require("./storage/download")
 
-exports.copyFile = copyFile
-exports.deleteFile = deleteFile
-exports.moveFiles = moveFiles
-exports.downloadFile = file
-exports.downloadBucket = bucket
-exports.writeJson = write
+/**
+ * Downloads all files from the given bucket.
+ *
+ * @param {string} name Bucket name.
+ * @param {string} destination Destination path.
+ */
+exports.download = async (name, destination = __dirname) =>
+  bucket(name, destination)
