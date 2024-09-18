@@ -70,12 +70,12 @@ exports.folder = (folder, bucket, directory = __dirname) => {
   const destination = path.join(directory, folder)
 
   if (!fs.existsSync(destination)) {
-    fs.mkdirSync(destination, 0o744)
+    fs.mkdirSync(destination, { recursive: true, mode: 0o744 })
   }
 
   return manager.downloadManyFiles(folder, {
     passthroughOptions: {
-      destination,
+      destination: directory,
     },
   })
 }
