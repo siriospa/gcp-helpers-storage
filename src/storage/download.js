@@ -13,7 +13,7 @@
 // limitations under the License.
 
 const path = require("path")
-const { Storage } = require("@google-cloud/storage")
+const { Storage, TransferManager } = require("@google-cloud/storage")
 const log = require("@siriospa/gcp-functions-logger")
 const fs = require("fs")
 
@@ -53,4 +53,29 @@ exports.file = async (file, bucket, directory = __dirname) => {
     })
     .then(() => log.info(`Downloading "${file}".`))
     .catch(() => log.error(`Failed downloading "${file}".`))
+}
+
+/**
+ * Downloads a folder from the given bucket.
+ *
+ * @param {string} folder Folder name.
+ * @param {Bucket} bucket Google Cloud Storage bucket object.
+ * @param {string} directory Destination directory.
+ *
+ * @returns {Promise}
+ */
+exports.folder = (folder, bucket, directory = __dirname) => {
+  const storage = new Storage()
+  const manager = new TransferManager(storage.bucket(bucket))
+  const destination = path.join(directory, folder)
+
+  if (!fs.existsSync(destination)) {
+    fs.mkdirSync(destination, 0o744)
+  }
+
+  return manager.downloadManyFiles(folder, {
+    passthroughOptions: {
+      destination,
+    },
+  })
 }

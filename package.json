@@ -1,7 +1,7 @@
 {
   "name": "@siriospa/gcp-helpers-storage",
   "private": false,
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Helpers for Google Cloud Storage.",
   "main": "dist/index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "@siriospa/gcp-functions-logger": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.24.8",
+    "@babel/cli": "^7.25.6",
     "mkdirp": "^3.0.1",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
