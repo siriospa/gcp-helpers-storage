@@ -13,7 +13,7 @@
 // limitations under the License.
 
 const { copyFile, deleteFile, moveFiles } = require("./storage/file")
-const { file, bucket } = require("./storage/download")
+const { bucket, file, folder } = require("./storage/download")
 const { write } = require("./storage/json")
 
 exports.copyFile = copyFile
@@ -21,4 +21,5 @@ exports.deleteFile = deleteFile
 exports.moveFiles = moveFiles
 exports.downloadFile = file
 exports.downloadBucket = bucket
+exports.downloadFolder = folder
 exports.writeJson = write
